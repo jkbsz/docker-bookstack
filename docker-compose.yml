@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  db:
+    restart: always
+    image: mysql:5
+    volumes:
+      - dbdata:/var/lib/mysql
+    env_file:
+      - bookstack.env
+
+
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    restart: always
+    env_file:
+      - bookstack.env
+    volumes:
+      - uploads:/opt/bookstack/public/uploads
+      - storage-uploads:/opt/bookstack/public/storage
+
+volumes:
+  dbdata:
+  uploads:
+  storage-uploads:
+
