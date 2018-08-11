@@ -1,8 +1,8 @@
 # docker-compose for BookStack
 
 Two containers:
-	- MySQL
-	- Apache + PHP
+* MySQL
+* Apache + PHP
 
 Project page https://www.bookstackapp.com/
 
